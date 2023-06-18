@@ -1,4 +1,7 @@
 import { useState } from "react"
+import { InputForm } from "../../atoms/InputForm";
+import { AddTodo } from "../../organisms/AddTodo";
+import { TodoList } from "../../organisms/TodoList";
 import { searchTodo } from "../../../utils/todoLogic";
 import { INIT_TODO_LIST, INIT_UNIQUE_ID } from "../../../constants/data";
 import styles from "./styles.module.css";
@@ -116,28 +119,28 @@ export const TodoTemplate = () => {
       <h1 className={styles.title}>Todo List</h1>
       {/* Todo追加エリア */}
       <section className={styles.common}>
-        {/*<AddTodo*/}
-        {/*  addInputValue={addInputValue}*/}
-        {/*  onChangeTodo={onChangeAddInputValue}*/}
-        {/*  handleAddTodo={handleAddTodo}*/}
-        {/*/>*/}
+        <AddTodo
+          addInputValue={addInputValue}
+          onChangeTodo={onChangeAddInputValue}
+          handleAddTodo={handleAddTodo}
+        />
       </section>
       {/* Todo検索フォームエリア */}
       <section className={styles.common}>
-        {/*<InputForm*/}
-        {/*  inputValue={searchKeyword}*/}
-        {/*  placeholder={"Search Keyword"}*/}
-        {/*  handleChangeValue={handleSearchTodo}*/}
-        {/*/>*/}
+        <InputForm
+          inputValue={searchKeyword}
+          placeholder={"Search Keyword"}
+          handleChangeValue={handleSearchTodo}
+        />
       </section>
       {/* Todoリスト一覧表示 */}
       <section className={styles.common}>
-        {/*{showTodoList.length > 0 && (*/}
-        {/*  <TodoList*/}
-        {/*    todoList={showTodoList}*/}
-        {/*    handleDeleteTodo={handleDeleteTodo}*/}
-        {/*  />*/}
-        {/*)}*/}
+        {showTodoList.length > 0 && (
+          <TodoList
+            todoList={showTodoList}
+            handleDeleteTodo={handleDeleteTodo}
+          />
+        )}
       </section>
     </div>
   );
